@@ -1,17 +1,33 @@
 // Components
+import Grid from '@mui/material/Grid'
 import BoxTitle from '../../layouts/components/boxTitle';
 import CategoryCard from '../../layouts/components/categoryCard';
 
 const CategoriesPage = () => {
   return (
-    <>
-      <BoxTitle title='Categorias'/>
+    <Grid container spacing={8}>
+      <Grid item xs={12}>
+        <BoxTitle title='Categorias'/>
+      </Grid>
 
-      <CategoryCard />
-      <CategoryCard />
-      <CategoryCard />
-      <CategoryCard />
-    </>
+      <Grid container item spacing={6}>
+        <Grid item lg={4} md={6} xs={12}>
+          <CategoryCard />
+        </Grid>
+        <Grid item lg={4} md={6} xs={12}>
+          <CategoryCard />
+        </Grid>
+        <Grid item lg={4} md={6} xs={12}>
+          <CategoryCard />
+        </Grid>
+        <Grid item lg={4} md={6} xs={12}>
+          <CategoryCard />
+        </Grid>
+        <Grid item lg={4} md={6} xs={12}>
+          <CategoryCard />
+        </Grid>
+      </Grid>
+    </Grid>
   )
 }
 
