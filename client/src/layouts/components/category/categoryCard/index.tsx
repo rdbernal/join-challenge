@@ -7,6 +7,8 @@ import Typography from '@mui/material/Typography'
 // Components
 import DeleteCategoryModal from '../deleteCategoryModal'
 import { useState } from 'react'
+import Link from 'next/link'
+import { Stack } from '@mui/material'
 
 const CategoryCard = () => {
   const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false)
@@ -26,10 +28,14 @@ const CategoryCard = () => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button variant='contained' color='error' onClick={() => setOpenDeleteModal(true)}>
-            Excluir
-          </Button>
-          <Button variant='contained'>Editar</Button>
+          <Stack direction='row' spacing={4}>
+            <Button variant='contained' color='error' onClick={() => setOpenDeleteModal(true)}>
+              Excluir
+            </Button>
+            <Link href={`/editCategory/${1}`}>
+              <Button variant='contained'>Editar</Button>
+            </Link>
+          </Stack>
         </CardActions>
       </Card>
     </>

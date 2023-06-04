@@ -9,6 +9,7 @@ import Stack from '@mui/material/Stack'
 // Components
 import DeleteProductModal from '../deleteProductModal'
 import { useState } from 'react'
+import Link from 'next/link'
 
 const ProductCard = () => {
   const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false)
@@ -42,10 +43,14 @@ const ProductCard = () => {
           </Stack>
         </CardContent>
         <CardActions>
-          <Button variant='contained' color='error' onClick={() => setOpenDeleteModal(true)}>
-            Excluir
-          </Button>
-          <Button variant='contained'>Editar</Button>
+          <Stack direction='row' spacing={4}>
+            <Button variant='contained' color='error' onClick={() => setOpenDeleteModal(true)}>
+              Excluir
+            </Button>
+            <Link href={`/editProduct/${1}`}>
+              <Button variant='contained'>Editar</Button>
+            </Link>
+          </Stack>
         </CardActions>
       </Card>
     </>
