@@ -1,7 +1,7 @@
 // Components
 import Grid from '@mui/material/Grid'
 import BoxTitle from '../../layouts/components/boxTitle'
-import ProductCard from '../../layouts/components/productCard'
+import ProductCard from '../../layouts/components/product/productCard'
 
 const ProductsPage = () => {
   return (

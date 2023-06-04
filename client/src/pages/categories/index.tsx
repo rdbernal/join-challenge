@@ -1,7 +1,7 @@
 // Components
 import Grid from '@mui/material/Grid'
 import BoxTitle from '../../layouts/components/boxTitle';
-import CategoryCard from '../../layouts/components/categoryCard';
+import CategoryCard from '../../layouts/components/category/categoryCard';
 
 const CategoriesPage = () => {
   return (
