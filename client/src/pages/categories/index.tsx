@@ -5,7 +5,7 @@ import CategoryCard from '../../layouts/components/categoryCard';
 const CategoriesPage = () => {
   return (
     <>
-      <BoxTitle />
+      <BoxTitle title='Categorias'/>
 
       <CategoryCard />
       <CategoryCard />

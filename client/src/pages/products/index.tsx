@@ -5,7 +5,7 @@ import ProductCard from '../../layouts/components/productCard'
 const ProductsPage = () => {
   return (
     <>
-      <BoxTitle />
+      <BoxTitle title='Produtos'/>
 
       <ProductCard />
       <ProductCard />
