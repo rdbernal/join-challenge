@@ -7,7 +7,7 @@ const ProductsPage = () => {
   return (
     <Grid container spacing={8}>
       <Grid item xs={12}>
-        <BoxTitle title='Produtos' />
+        <BoxTitle title='Produtos' buttonText='Adicionar produto' />
       </Grid>
 
       <Grid container item spacing={6}>

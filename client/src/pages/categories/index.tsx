@@ -7,7 +7,7 @@ const CategoriesPage = () => {
   return (
     <Grid container spacing={8}>
       <Grid item xs={12}>
-        <BoxTitle title='Categorias'/>
+        <BoxTitle title='Categorias' buttonText='Adicionar categoria' />
       </Grid>
 
       <Grid container item spacing={6}>
