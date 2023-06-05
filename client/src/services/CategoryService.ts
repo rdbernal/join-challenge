@@ -23,12 +23,16 @@ export default class CategoryService extends BaseService {
   //   return response
   // }
 
-  public async store(category: Category): Promise<void> {
-    await this.connection.post(String(this.endpoint), category);
+  public async store(name: string): Promise<void> {
+    await this.connection.post(String(this.endpoint), {
+      nome_categoria: name
+    });
   }
 
   public async update(category: Category): Promise<void> {
-    await this.connection.put(`${this.endpoint}/${category.id}`, category);
+    await this.connection.put(`${this.endpoint}/${category.id}`, {
+      nome_categoria: category.name
+    });
   }
 
   public async destroy(id: string): Promise<void> {

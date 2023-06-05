@@ -62,7 +62,7 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $validated = $request->validate([
-          'nome_produto' => 'required|unique:App\Models\Product,nome_produto',
+          'nome_produto' => 'required',
           'valor_produto' => 'required|numeric|min:0.1'
         ]);
 

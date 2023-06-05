@@ -1,5 +1,6 @@
 import Product from 'src/models/Product'
 import BaseService from './BaseService'
+import { validateColors } from '@iconify/tools';
 
 export default class ProductService extends BaseService {
   constructor() {
@@ -24,11 +25,19 @@ export default class ProductService extends BaseService {
   // }
 
   public async store(product: Product): Promise<void> {
-    await this.connection.post(String(this.endpoint), product);
+    await this.connection.post(String(this.endpoint), {
+      nome_produto: product.name,
+      valor_produto: product.value,
+      id_categoria_produto: product.categoryId
+    });
   }
 
   public async update(product: Product): Promise<void> {
-    await this.connection.put(`${this.endpoint}/${product.id}`, product);
+    await this.connection.put(`${this.endpoint}/${product.id}`, {
+      nome_produto: product.name,
+      valor_produto: product.value,
+      id_categoria_produto: product.categoryId
+    });
   }
 
   public async destroy(id: string): Promise<void> {

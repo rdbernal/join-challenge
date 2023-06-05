@@ -9,11 +9,13 @@ import { DateTime } from 'luxon'
 
 // Components
 import DeleteProductModal from '../deleteProductModal'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
 // Models
 import Product from 'src/models/Product'
+import { useFetch } from 'src/hooks/useFetch'
+import Category from 'src/models/Category'
 
 interface ProductCardProps {
   product: Product
@@ -21,14 +23,20 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false)
+  const { data } = useFetch<{ status: boolean; category: Category[] }>(
+    `http://localhost:8000/api/categories/${product.categoryId}`
+  )
+  const [category, setCategory] = useState<Category>(new Category())
+
+  useEffect(() => {
+    if (data) {
+      setCategory(Category.showSerializer(data.category))
+    }
+  }, [data])
 
   return (
     <>
-      <DeleteProductModal
-        open={openDeleteModal}
-        handleClose={() => setOpenDeleteModal(false)}
-        product={product}
-      />
+      <DeleteProductModal open={openDeleteModal} handleClose={() => setOpenDeleteModal(false)} product={product} />
 
       <Card>
         <CardContent>
@@ -44,7 +52,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             </div>
 
             <div>
-              <Chip label={product.categoryId} variant='outlined'></Chip>
+              <Chip label={category.name} variant='outlined'></Chip>
             </div>
 
             <Typography variant='h5' component='h3'>

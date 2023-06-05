@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 
 export function useFetch<Data = any>(url: string) {
-  const { data, error } = useSWR<Data>(url, async url => {
+  const { data, error, isLoading, mutate } = useSWR<Data>(url, async url => {
     const response = await fetch(url, {
       method: 'GET'
     })
@@ -12,6 +12,8 @@ export function useFetch<Data = any>(url: string) {
 
   return {
     data,
-    error
+    error,
+    isLoading,
+    mutate
   }
 }
