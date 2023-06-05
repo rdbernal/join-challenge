@@ -5,13 +5,21 @@ import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import Chip from '@mui/material/Chip'
 import Stack from '@mui/material/Stack'
+import { DateTime } from 'luxon'
 
 // Components
 import DeleteProductModal from '../deleteProductModal'
 import { useState } from 'react'
 import Link from 'next/link'
 
-const ProductCard = () => {
+// Models
+import Product from 'src/models/Product'
+
+interface ProductCardProps {
+  product: Product
+}
+
+const ProductCard = ({ product }: ProductCardProps) => {
   const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false)
 
   return (
@@ -19,7 +27,7 @@ const ProductCard = () => {
       <DeleteProductModal
         open={openDeleteModal}
         handleClose={() => setOpenDeleteModal(false)}
-        productName='nome_produto'
+        product={product}
       />
 
       <Card>
@@ -27,18 +35,20 @@ const ProductCard = () => {
           <Stack spacing={4}>
             <div>
               <Typography variant='h5' component='h2'>
-                Nome do produto
+                {product.name}
               </Typography>
 
-              <Typography component='span'>Cadastro: data_de_cadastro</Typography>
+              <Typography component='span'>
+                Cadastro: {DateTime.fromJSDate(product.creationDate).toFormat('dd/MM/yyyy')}
+              </Typography>
             </div>
 
             <div>
-              <Chip label='Categoria' variant='outlined'></Chip>
+              <Chip label={product.categoryId} variant='outlined'></Chip>
             </div>
 
             <Typography variant='h5' component='h3'>
-              R$ 31,99
+              {product.value?.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
             </Typography>
           </Stack>
         </CardContent>
@@ -47,7 +57,7 @@ const ProductCard = () => {
             <Button variant='contained' color='error' onClick={() => setOpenDeleteModal(true)}>
               Excluir
             </Button>
-            <Link href={`/editProduct/${1}`}>
+            <Link href={`/editProduct/${product.id}`}>
               <Button variant='contained'>Editar</Button>
             </Link>
           </Stack>

@@ -648,6 +648,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/luxon@^3.3.0":
+  version "3.3.0"
+  resolved "https://registry.npmjs.org/@types/luxon/-/luxon-3.3.0.tgz"
+  integrity sha512-uKRI5QORDnrGFYgcdAVnHvEIvEZ8noTpP/Bg+HeUzZghwinDlIS87DEenV5r1YoOF9G4x600YsUXLWZ19rmTmg==
+
 "@types/node-fetch@^2.6.2":
   version "2.6.2"
   resolved "https://registry.npmjs.org/@types/node-fetch/-/node-fetch-2.6.2.tgz"
@@ -1042,10 +1047,10 @@ axios-mock-adapter@1.21.2:
     fast-deep-equal "^3.1.3"
     is-buffer "^2.0.5"
 
-axios@1.3.4:
-  version "1.3.4"
-  resolved "https://registry.npmjs.org/axios/-/axios-1.3.4.tgz"
-  integrity sha512-toYm+Bsyl6VC5wSkfkbbNB6ROv7KY93PEBBL6xyDczaIHasAiv4wPqQ/c4RjoQzipxRD2W5g21cOqQulZ7rHwQ==
+axios@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.npmjs.org/axios/-/axios-1.1.3.tgz"
+  integrity sha512-00tXVRwKx/FZr/IDVFt4C+f9FYairX517WoGCL6dpOntqLkZofjhu43F/Xl44UOpqa+9sLFDrG/XAnFsUYgkDA==
   dependencies:
     follow-redirects "^1.15.0"
     form-data "^4.0.0"
@@ -2831,6 +2836,11 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
+luxon@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.npmjs.org/luxon/-/luxon-3.3.0.tgz"
+  integrity sha512-An0UCfG/rSiqtAIiBPO0Y9/zAnHUZxAMiCpTd5h2smgsj7GGmcenvrvww2cqNA8/4A5ZrD1gJpHN2mIHZQF+Mg==
+
 mdn-data@2.0.28:
   version "2.0.28"
   resolved "https://registry.npmjs.org/mdn-data/-/mdn-data-2.0.28.tgz"
@@ -2888,7 +2898,14 @@ minimist@^1.2.0, minimist@^1.2.6, minimist@~1.2.5:
   resolved "https://registry.npmjs.org/minimist/-/minimist-1.2.8.tgz"
   integrity sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==
 
-minipass@^3.0.0, minipass@^4.0.0:
+minipass@^3.0.0:
+  version "3.3.6"
+  resolved "https://registry.npmjs.org/minipass/-/minipass-3.3.6.tgz"
+  integrity sha512-DxiNidxSEK+tHG6zOIklvNOwm3hvCrbUrdtzY74U6HKTJxvIDfOUL5W5P2Ghd3DTkhhKPYGqeNUIh5qcM4YBfw==
+  dependencies:
+    yallist "^4.0.0"
+
+minipass@^4.0.0:
   version "4.2.5"
   resolved "https://registry.npmjs.org/minipass/-/minipass-4.2.5.tgz"
   integrity sha512-+yQl7SX3bIT83Lhb4BVorMAHVuqsskxRdlmO9kTpyukp8vsm2Sn/fUOV9xlnG8/a5JsypJzap21lz/y3FBMJ8Q==
@@ -3883,6 +3900,13 @@ svgo@^3.0.2:
     csso "^5.0.5"
     picocolors "^1.0.0"
 
+swr@^2.1.5:
+  version "2.1.5"
+  resolved "https://registry.npmjs.org/swr/-/swr-2.1.5.tgz"
+  integrity sha512-/OhfZMcEpuz77KavXST5q6XE9nrOBOVcBLWjMT+oAE/kQHyE3PASrevXCtQDZ8aamntOfFkbVJp7Il9tNBQWrw==
+  dependencies:
+    use-sync-external-store "^1.2.0"
+
 synckit@^0.8.4:
   version "0.8.5"
   resolved "https://registry.npmjs.org/synckit/-/synckit-0.8.5.tgz"
@@ -4046,7 +4070,7 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
-use-sync-external-store@^1.0.0:
+use-sync-external-store@^1.0.0, use-sync-external-store@^1.2.0:
   version "1.2.0"
   resolved "https://registry.npmjs.org/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz"
   integrity sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==

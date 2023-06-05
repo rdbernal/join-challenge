@@ -10,7 +10,14 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Stack } from '@mui/material'
 
-const CategoryCard = () => {
+// Models
+import Category from 'src/models/Category'
+
+interface CategoryCardProps {
+  category: Category
+}
+
+const CategoryCard = ({ category }: CategoryCardProps) => {
   const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false)
 
   return (
@@ -18,13 +25,13 @@ const CategoryCard = () => {
       <DeleteCategoryModal
         open={openDeleteModal}
         handleClose={() => setOpenDeleteModal(false)}
-        categoryName='nome_categoria'
+        category={category}
       />
 
       <Card>
         <CardContent>
           <Typography variant='h5' component='h2'>
-            Nome da categoria
+            {category.name}
           </Typography>
         </CardContent>
         <CardActions>
@@ -32,7 +39,7 @@ const CategoryCard = () => {
             <Button variant='contained' color='error' onClick={() => setOpenDeleteModal(true)}>
               Excluir
             </Button>
-            <Link href={`/editCategory/${1}`}>
+            <Link href={`/editCategory/${category.id}`}>
               <Button variant='contained'>Editar</Button>
             </Link>
           </Stack>

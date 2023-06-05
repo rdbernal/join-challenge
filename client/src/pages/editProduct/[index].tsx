@@ -1,3 +1,5 @@
+import { useFetch } from 'src/hooks/useFetch'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { Grid } from '@mui/material'
 import TextField from '@mui/material/TextField'
@@ -13,7 +15,17 @@ import Button from '@mui/material/Button'
 import BoxTitle from 'src/layouts/components/boxTitle'
 import CustomForm from 'src/layouts/components/customForm'
 
+// Models
+import Product from 'src/models/Product'
+
 const EditProduct = () => {
+  const {
+    query: { index }
+  } = useRouter()
+  const { data } = useFetch<{ status: boolean; product: Product[] }>(`http://localhost:8000/api/products/${index}`)
+
+  console.log(data?.product)
+
   const [age, setAge] = useState<string>('')
 
   const handleChange = (event: SelectChangeEvent) => {
